@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выбор карт Таро</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
         .cards {
             display: flex;
             justify-content: center;
@@ -26,19 +31,17 @@
     </style>
 </head>
 <body>
-    <div id="card-selection">
-        <h2>Выберите 3 карты:</h2>
-        <div class="cards">
-            <button class="card" data-card="1">🂠</button>
-            <button class="card" data-card="2">🂠</button>
-            <button class="card" data-card="3">🂠</button>
-            <button class="card" data-card="4">🂠</button>
-            <button class="card" data-card="5">🂠</button>
-            <button class="card" data-card="6">🂠</button>
-            <button class="card" data-card="7">🂠</button>
-        </div>
-        <button id="submit-cards" disabled>Подтвердить выбор</button>
+    <h2>Выберите 3 карты:</h2>
+    <div class="cards">
+        <button class="card" data-card="1">🂠</button>
+        <button class="card" data-card="2">🂠</button>
+        <button class="card" data-card="3">🂠</button>
+        <button class="card" data-card="4">🂠</button>
+        <button class="card" data-card="5">🂠</button>
+        <button class="card" data-card="6">🂠</button>
+        <button class="card" data-card="7">🂠</button>
     </div>
+    <button id="submit-cards" disabled>Подтвердить выбор</button>
 
     <script>
         const selectedCards = [];
