@@ -92,17 +92,23 @@
             // Добавляем обработчики событий для каждой карты
             buttons.forEach(button => {
                 button.addEventListener('click', () => {
+                    const cardId = button.dataset.card;
+
                     // Если карта уже выбрана, убираем её из массива
                     if (button.classList.contains('selected')) {
                         button.classList.remove('selected');
-                        selectedCards.splice(selectedCards.indexOf(button.dataset.card), 1);
+                        const index = selectedCards.indexOf(cardId);
+                        if (index > -1) {
+                            selectedCards.splice(index, 1); // Удаляем ID из массива
+                        }
                     } else {
                         // Если выбрано меньше 3 карт, добавляем новую
                         if (selectedCards.length < 3) {
                             button.classList.add('selected');
-                            selectedCards.push(button.dataset.card);
+                            selectedCards.push(cardId);
                         }
                     }
+
                     // Активируем кнопку подтверждения, если выбрано ровно 3 карты
                     submitButton.disabled = selectedCards.length !== 3;
                 });
