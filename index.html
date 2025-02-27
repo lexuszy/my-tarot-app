@@ -73,20 +73,24 @@
 
             buttons.forEach(button => {
                 button.addEventListener('click', () => {
+                    // Проверяем, выбрана ли карта
                     if (!button.classList.contains('selected')) {
                         if (selectedCards.length < 3) {
-                            button.classList.add('selected');
-                            selectedCards.push(button.dataset.card);
+                            button.classList.add('selected'); // Добавляем класс для выделения
+                            selectedCards.push(button.dataset.card); // Добавляем ID карты в массив
                         }
                     } else {
-                        button.classList.remove('selected');
-                        selectedCards.splice(selectedCards.indexOf(button.dataset.card), 1);
+                        button.classList.remove('selected'); // Убираем класс
+                        selectedCards.splice(selectedCards.indexOf(button.dataset.card), 1); // Удаляем ID из массива
                     }
+
+                    // Активируем кнопку "Подтвердить", если выбрано 3 карты
                     submitButton.disabled = selectedCards.length !== 3;
                 });
             });
 
             submitButton.addEventListener('click', () => {
+                // Отправляем данные в Telegram
                 Telegram.WebApp.sendData(JSON.stringify({ cards: selectedCards }));
             });
         } else {
